@@ -1,15 +1,20 @@
 
 class Recipe
-    attr_accessor :food, :cook
+    attr_accessor :dish, :cook
     @@all = []
-    def initialize(food, cook)
-        @food = food
+    def initialize(dish, cook)
+        @dish = dish
         @cook = cook
         @@all << self
     end
 
+    def self.all
+        @@all
+    end
+
     def list_ingredients
-        Ingredient.all.select { |obj| obj.recipe == self}
+        ingredients = Ingredient.all.select { |obj| obj.recipe == self}
+        ingredients.map { |ing| ing.item}
     end
 
 end

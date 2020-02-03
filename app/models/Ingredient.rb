@@ -1,14 +1,17 @@
 #class for Model3 goes here
 #Feel free to change the name of the class
 class Ingredient
-    attr_accessor :thing, :recipe, :cook
+    attr_accessor :item, :recipe
     @@all = []
 
-    def intialize(thing, recipe, cook)
-        @thing = thing
+    def initialize(item, recipe)
+        @item = item
         @recipe = recipe
-        @cook = cook
-        @@all < self
+        @@all << self
+    end
+
+    def self.all
+        @@all
     end
 
 end

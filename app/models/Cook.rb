@@ -6,16 +6,13 @@ class Cook
         @name = name
     end
 
-    def recipe
-        Recipe.all.select {|obj| obj.cook == self}
+    def recipes
+        cook = Recipe.all.select {|obj| obj.cook == self}
+        cook.map {|dd| dd.dish}
     end
 
-    def buy_ingredients
+    def buy_ingredients(thing, recipe)
         Ingredient.new(thing, recipe, self)
-    end
-
-    def recipe
-
     end
 
 end
